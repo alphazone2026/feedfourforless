@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The $60 Week: Free Family Dinner Plan | Feed Four for Less</title>
+<meta name="description" content="7 cheap family dinners, one printable grocery list and a 20-minute Sunday prep plan. Feeds 4 for under $60. Free.">
+<meta property="og:title" content="The $60 Week: 7 family dinners for under $60">
+<meta property="og:description" content="7 easy dinners, 1 printable grocery list, 20-minute Sunday prep. Free.">
+<meta property="og:image" content="img/cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">Feed Four for Less</div></header>
+
+<div class="hero"><div class="wrap grid">
+  <div>
+    <h1>Feed your family for <span>under $60</span> this week.</h1>
+    <p class="lead">7 easy dinners, 1 printable grocery list, and a 20-minute Sunday prep plan. Every dinner takes 30 minutes or less. Free.</p>
+    <!-- BREVO: replace action with the form's sibforms.com URL; field names EMAIL and FIRSTNAME match Brevo's defaults -->
+    <form id="signup" method="POST" action="BREVO_FORM_ACTION">
+      <label>First name<input name="FIRSTNAME" autocomplete="given-name" required></label>
+      <label>Email<input type="email" name="EMAIL" autocomplete="email" required></label>
+      <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px" aria-hidden="true">
+      <button type="submit">Send me the free plan</button>
+      <p class="fine">I'll email you the plan, then cheap dinner ideas about once a week. Unsubscribe any time. <a href="privacy.html">Privacy</a></p>
+      <p class="msg" id="msg" hidden></p>
+    </form>
+  </div>
+  <img class="cover" src="img/cover.png" alt="Cover of The $60 Week meal plan" width="816" height="1056">
+</div></div>
+
+<section><div class="wrap">
+  <h2>What's inside</h2>
+  <div class="cards">
+    <div class="card"><b>7 family dinners</b>Chicken fried rice, quesadillas, sheet-pan chicken, spaghetti and more. Kid-friendly, with picky eater swaps.</div>
+    <div class="card"><b>1 grocery list</b>18 items, sorted by aisle, priced item by item. Ingredients are shared across meals, so nothing goes to waste.</div>
+    <div class="card"><b>20-minute Sunday prep</b>Five quick jobs on Sunday make every weeknight dinner faster. Plus a printable planner for next week.</div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Your week</h2>
+  <ul class="days">
+    <li><b>Monday</b>Chicken Fried Rice</li>
+    <li><b>Tuesday</b>Black Bean &amp; Cheese Quesadillas</li>
+    <li><b>Wednesday</b>Sheet-Pan Chicken &amp; Potatoes</li>
+    <li><b>Thursday</b>Spaghetti with Meat Sauce</li>
+    <li><b>Friday</b>Cheesy Egg Scramble &amp; Crispy Potatoes</li>
+    <li><b>Saturday</b>Chicken Burrito Bowls</li>
+    <li><b>Sunday</b>Chicken Noodle Soup</li>
+  </ul>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="price">
+    <span>We priced every item at Walmart on 26 September 2026:</span>
+    <span class="display">$47.64</span>
+    <span>for the whole week. That's about $1.70 a serving. Prices vary by store, so we plan for $60 and aim well under it.</span>
+  </div>
+  <p style="margin-top:24px"><a class="btn" href="#signup">Get the free plan</a></p>
+</div></section>
+
+<footer><div class="wrap">© 2026 Feed Four for Less · <a href="privacy.html">Privacy &amp; disclosures</a></div></footer>
+
+<script>
+// Until the Brevo form URL is in place, say so rather than failing silently.
+document.getElementById('signup').addEventListener('submit', e => {
+  if (e.target.action.includes('BREVO_FORM_ACTION')) {
+    e.preventDefault();
+    const m = document.getElementById('msg'); m.hidden = false; m.textContent = 'Sign-ups open very soon. Please check back tomorrow.';
+  }
+});
+</script>
+</body>
+</html>
