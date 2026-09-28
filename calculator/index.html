@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Dinner Budget Calculator: What Should Dinner Cost a Week? | Feed Four for Less</title>
+<meta name="description" content="Free calculator: see what home-cooked dinners cost your family each week, month and year at Walmart prices, and how much swapping takeout nights saves.">
+<meta property="og:title" content="Family Dinner Budget Calculator">
+<meta property="og:description" content="What should dinner cost your family? Free, instant, based on real Walmart prices.">
+<meta property="og:image" content="icon-512.png">
+<meta name="theme-color" content="#D9442B">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Dinner Budget">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.calc { background: var(--paper); color: var(--ink); border-radius: 18px; padding: 20px; display: grid; gap: 16px; max-width: 560px }
+.step { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 700 }
+.step .ctl { display: flex; align-items: center; gap: 10px }
+.step button { width: 44px; height: 44px; padding: 0; font-size: 22px; border-radius: 12px }
+.step output { font: 900 26px 'Archivo Black', sans-serif; min-width: 1.6em; text-align: center }
+.money { display: grid; gap: 4px; font-weight: 700; font-size: 14px }
+.money input { max-width: 180px }
+.opt { font-size: 13px; color: #666; font-weight: 600 }
+.res { background: var(--green); color: var(--cream); border-radius: 18px; padding: 22px; display: grid; gap: 10px; max-width: 560px }
+.res .big { font: 900 clamp(40px, 11vw, 60px) 'Archivo Black', sans-serif; color: #FFE39A; line-height: 1 }
+.res .row { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.15); padding-top: 8px }
+.res .note { font-size: 14px; opacity: .9 }
+.save { background: #FFE39A; color: var(--ink); border-radius: 12px; padding: 12px 14px; font-weight: 700 }
+.grid2 { display: grid; gap: 24px; align-items: start }
+@media (min-width: 900px) { .grid2 { grid-template-columns: 1fr 1fr } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="../" style="text-decoration:none">Feed Four for Less</a></div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>What should dinner <span>cost your family?</span></h1>
+  <p class="lead">A free calculator built on real grocery prices: 5 full weeks of family dinners we priced item by item at Walmart.</p>
+  <div class="grid2">
+    <div class="calc">
+      <div class="step">People at the table<div class="ctl"><button type="button" data-k="people" data-d="-1" aria-label="Fewer people">−</button><output id="people">4</output><button type="button" data-k="people" data-d="1" aria-label="More people">+</button></div></div>
+      <div class="step">Dinners cooked at home a week<div class="ctl"><button type="button" data-k="dinners" data-d="-1" aria-label="Fewer dinners">−</button><output id="dinners">7</output><button type="button" data-k="dinners" data-d="1" aria-label="More dinners">+</button></div></div>
+      <div class="step">Takeout nights a week<div class="ctl"><button type="button" data-k="takeout" data-d="-1" aria-label="Fewer takeout nights">−</button><output id="takeout">0</output><button type="button" data-k="takeout" data-d="1" aria-label="More takeout nights">+</button></div></div>
+      <label class="money">What a takeout night costs your family <span class="opt">optional</span><input id="tcost" type="number" inputmode="decimal" min="0" step="1" placeholder="$ e.g. 45"></label>
+      <label class="money">Your grocery spend a week now <span class="opt">optional</span><input id="spend" type="number" inputmode="decimal" min="0" step="1" placeholder="$ e.g. 200"></label>
+    </div>
+    <div class="res" aria-live="polite">
+      <div>Home-cooked dinners for your family</div>
+      <div class="big" id="week">$0</div>
+      <div class="note" id="range"></div>
+      <div class="row"><span>A month</span><b id="month"></b></div>
+      <div class="row"><span>A year</span><b id="year"></b></div>
+      <div class="row"><span>A serving</span><b id="serving"></b></div>
+      <div class="save" id="swap" hidden></div>
+      <div class="note" id="share" hidden></div>
+      <div class="note">Based on Walmart US online prices checked 26 September 2026, before tax. Every dinner feeds its eaters one serving; small children often eat less, so you may have leftovers.</div>
+    </div>
+  </div>
+</div></div>
+
+<section><div class="wrap grid2">
+  <div>
+    <h2>Get a week of dinners that hits this number</h2>
+    <p style="margin-bottom:16px">The $60 Week is free: 7 family dinners, 1 printable grocery list and a 20-minute Sunday prep plan. It came to $47.64 at Walmart.</p>
+    <form id="signup" method="POST" action="https://491e9783.sibforms.com/serve/MUIFAN1eREct_Al8ItXR8fPCsEIVgNm88BXCDSrJw5KPZfsw40-ntw5vJowtZJo-vpfHRWlcmyYrEtwhCxviZERHnZVbXv40j7S8G9q_01-TirQ3PQdP3r6ffZ9BwwqSEQ3XXUoFWjdJ3ND0_hqhJZ2rM1huilacXzLCaV0FJ41d0rg8NadRArINAJSo0BWiz4-LFVUa7G4uG2nYJw==">
+      <label>Your email<input type="email" name="EMAIL" autocomplete="email" required placeholder="you@example.com"></label>
+      <input type="hidden" name="locale" value="en">
+      <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px" aria-hidden="true">
+      <button type="submit">Send me the free plan</button>
+      <p class="fine">I'll email you the plan, then cheap dinner ideas about once a week. Unsubscribe any time. <a href="../privacy.html">Privacy</a></p>
+      <p class="msg" id="msg" hidden></p>
+    </form>
+  </div>
+  <div class="cards" style="grid-template-columns:1fr">
+    <div class="card"><b>Want a whole month planned?</b>The 30-Day Family Dinner Plan: 30 dinners and 4 weekly grocery lists, every week under $60. <a href="https://payhip.com/b/sO0z2">$7, instant download</a></div>
+    <div class="card"><b>Hosting the holidays?</b>Thanksgiving and Christmas dinners for 4 with hour-by-hour countdowns and 8 leftover dinners. <a href="https://payhip.com/b/vqtOo">$7, instant download</a></div>
+    <div class="card"><b>Keep this on your phone</b>Tap Share, then "Add to Home Screen" (iPhone) or the menu, then "Install app" (Android). It opens like an app and works offline.</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Feed Four for Less · <a href="../">Free meal plan</a> · <a href="../privacy.html">Privacy &amp; disclosures</a></div></footer>
+
+<script>
+const D = {"lo":1.66786,"hi":1.7971400000000002,"avg":1.73971};
+const S = { people: 4, dinners: 7, takeout: 0 };
+const LIM = { people: [1, 12], dinners: [0, 7], takeout: [0, 7] };
+const $ = (n) => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n.toFixed(2));
+const el = (id) => document.getElementById(id);
+// remembered on this phone only, so the numbers are still there next time
+try { Object.assign(S, JSON.parse(localStorage.getItem('f4l.calc') || '{}')); } catch (e) {}
+function render() {
+  for (const k in S) if (el(k)) el(k).textContent = S[k];
+  const servings = S.people * S.dinners, wk = servings * D.avg;
+  el('week').innerHTML = $(wk) + ' <small style="font-size:.4em">a week</small>';
+  el('range').textContent = servings ? 'Between ' + $(servings * D.lo) + ' and ' + $(servings * D.hi) + ' depending on the week\'s menu' : 'Add some home-cooked dinners to see the cost';
+  el('month').textContent = $(wk * 52 / 12);
+  el('year').textContent = $(wk * 52);
+  el('serving').textContent = '$' + D.avg.toFixed(2);
+  const tc = parseFloat(el('tcost').value), sp = parseFloat(el('spend').value);
+  const swap = el('swap');
+  if (S.takeout > 0 && tc > 0) {
+    const home = S.takeout * S.people * D.avg, saved = S.takeout * tc - home;
+    swap.hidden = false;
+    swap.textContent = saved > 0 ? 'Cooking your ' + S.takeout + ' takeout night' + (S.takeout > 1 ? 's' : '') + ' at home instead: about ' + $(home) + ', saving ' + $(saved) + ' a week, ' + $(saved * 52) + ' a year.' : 'Your takeout nights already cost about the same as cooking at home.';
+  } else swap.hidden = true;
+  const share = el('share');
+  if (sp > 0 && servings) { share.hidden = false; share.textContent = 'That is about ' + Math.round(wk / sp * 100) + '% of your current grocery spend.'; } else share.hidden = true;
+  try { localStorage.setItem('f4l.calc', JSON.stringify(S)); } catch (e) {}
+}
+document.querySelectorAll('.step button').forEach((b) => b.addEventListener('click', () => {
+  const k = b.dataset.k, [a, z] = LIM[k];
+  S[k] = Math.min(z, Math.max(a, S[k] + Number(b.dataset.d)));
+  // a week has 7 dinners: a takeout night is one fewer home-cooked dinner, and the other way round
+  if (S.dinners + S.takeout > 7) { if (k === 'takeout') S.dinners = 7 - S.takeout; else S.takeout = 7 - S.dinners; }
+  render();
+}));
+el('tcost').addEventListener('input', render); el('spend').addEventListener('input', render);
+render();
+// same background submit as the landing page, then the thank-you page
+const form = el('signup'), msg = el('msg'), btn = form.querySelector('button');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    const r = await fetch(form.action + '?isAjax=1', { method: 'POST', body: new FormData(form) });
+    const j = await r.json();
+    if (j.success) { location.href = '../thanks.html'; return; }
+    msg.hidden = false; msg.textContent = j.message || 'That email address didn\'t work. Please check it and try again.';
+  } catch (err) { form.submit(); return; }
+  btn.disabled = false; btn.textContent = 'Send me the free plan';
+});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
